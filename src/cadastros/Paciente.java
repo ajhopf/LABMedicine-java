@@ -1,5 +1,6 @@
 package cadastros;
 
+import cadastros.enums.StatusAtendimento;
 import repository.PessoaRepository;
 
 import java.util.Date;

@@ -1,4 +1,4 @@
-package cadastros;
+package cadastros.enums;
 
 public enum StatusAtendimento {
     AGUARDANDO_ATENDIMENTO,
