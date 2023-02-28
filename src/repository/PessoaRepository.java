@@ -6,17 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PessoaRepository {
-    static private final List<Pessoa> pessoasCadastradas = new ArrayList<>();
+    static private List<Pessoa> pessoasCadastradas = new ArrayList<>();
 
-    static public void adicionarPessoa(Pessoa pessoa) {
-        pessoasCadastradas.add(pessoa);
-    }
+    static public List<Pessoa> getTodasPessoas() {
+        List<Pessoa> listaAtualizada = new ArrayList<>();
+        listaAtualizada.add((Pessoa) EnfermeirosRepository.getEnfermeirosCadastrados());
+        listaAtualizada.add((Pessoa) MedicosRepository.getMedicosCadastrados());
+        listaAtualizada.add((Pessoa) PacientesRepository.getPacientesCadastrados());
 
-    static public List<Pessoa> verPessoasCadastradas() {
+        pessoasCadastradas = listaAtualizada;
         return pessoasCadastradas;
-    }
-
-    static public int retornaNumeroDeCadastros(){
-        return pessoasCadastradas.size();
     }
 }

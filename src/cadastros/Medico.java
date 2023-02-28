@@ -1,7 +1,7 @@
 package cadastros;
 
 import cadastros.enums.Especializacao;
-import repository.PessoaRepository;
+import repository.MedicosRepository;
 
 import java.util.Date;
 
@@ -13,14 +13,14 @@ public class Medico extends Pessoa {
     private int atendimentosRealizados;
 
     public Medico(String nome, String genero, Date dob, String cpf, String telefone, String formacao, String cadastroCrm, Especializacao especializacao, boolean isActive) {
-        super(nome, genero, dob, cpf, telefone, PessoaRepository.retornaNumeroDeCadastros() + 1);
+        super(nome, genero, dob, cpf, telefone, MedicosRepository.getNumeroDeMedicos() + 1);
         this.formacao = formacao;
         this.cadastroCrm = cadastroCrm;
         this.especializacao = especializacao;
         this.isActive = isActive;
         this.atendimentosRealizados = 0;
 
-        PessoaRepository.adicionarPessoa(this);
+        MedicosRepository.adicionarMedico(this);
     }
 
     @Override

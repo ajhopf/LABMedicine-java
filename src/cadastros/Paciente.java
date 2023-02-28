@@ -1,7 +1,7 @@
 package cadastros;
 
 import cadastros.enums.StatusAtendimento;
-import repository.PessoaRepository;
+import repository.PacientesRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Paciente extends Pessoa {
             String convenio, int numeroConvenio,
             Date validadeConvenio,
             StatusAtendimento statusAtendimento) {
-        super(nome, genero, dob, cpf, telefone, PessoaRepository.retornaNumeroDeCadastros() + 1);
+        super(nome, genero, dob, cpf, telefone, PacientesRepository.getNumeroDePacientes() + 1);
         this.contatoEmergencia = contatoEmergencia;
         this.alergias = alergias;
         this.cuidadosEspecificos = cuidadosEspecificos;
@@ -33,7 +33,7 @@ public class Paciente extends Pessoa {
         this.validadeConvenio = validadeConvenio;
         this.statusAtendimento = statusAtendimento;
 
-        PessoaRepository.adicionarPessoa(this);
+        PacientesRepository.adicionarPaciente(this);
     }
 
     public String getContatoEmergencia() {

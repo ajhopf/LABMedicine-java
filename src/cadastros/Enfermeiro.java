@@ -1,6 +1,6 @@
 package cadastros;
 
-import repository.PessoaRepository;
+import repository.EnfermeirosRepository;
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ public class Enfermeiro extends Pessoa {
     private String cadastroCofen;
 
     public Enfermeiro(String nome, String genero, Date dob, String cpf, String telefone, String formacao, String cadastroCofen) {
-        super(nome, genero, dob, cpf, telefone, PessoaRepository.retornaNumeroDeCadastros() + 1);
+        super(nome, genero, dob, cpf, telefone, EnfermeirosRepository.getNumeroDeEnfermeiros() + 1);
         this.formacao = formacao;
         this.cadastroCofen = cadastroCofen;
 
-        PessoaRepository.adicionarPessoa(this);
+        EnfermeirosRepository.adicionarEnfermeiro(this);
     }
 
     public String getNome(){
