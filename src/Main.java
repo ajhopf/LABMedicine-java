@@ -4,8 +4,8 @@ import cadastros.Paciente;
 import cadastros.Pessoa;
 import cadastros.enums.Especializacao;
 import cadastros.enums.StatusAtendimento;
-import repository.PacientesRepository;
 import repository.PessoaRepository;
+import service.AtualizarStatusDePaciente;
 import service.RealizarAtendimento;
 
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class Main {
 
         RealizarAtendimento.realizarAtendimento();
 
-        PacientesRepository.atualizarStatus(StatusAtendimento.ATENDIDO, 1);
+        AtualizarStatusDePaciente.atualizarStatus(StatusAtendimento.ATENDIDO, 1);
 
         for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
             System.out.println(pessoa);
