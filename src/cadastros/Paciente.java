@@ -102,7 +102,7 @@ public class Paciente extends Pessoa {
     @Override
     public String toString() {
         return "Paciente{" +
-                "nome='" +  + '\'' +
+                "nome='" + nome + '\'' +
                 ", genero='" + genero + '\'' +
                 ", dob=" + dob +
                 ", cpf='" + cpf + '\'' +
