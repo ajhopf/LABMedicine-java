@@ -4,7 +4,9 @@ import cadastros.Paciente;
 import cadastros.Pessoa;
 import cadastros.enums.Especializacao;
 import cadastros.enums.StatusAtendimento;
+import repository.PacientesRepository;
 import repository.PessoaRepository;
+import service.RealizarAtendimento;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,11 +53,13 @@ public class Main {
         Enfermeiro enfermeiro = new Enfermeiro("Ziggy", "masculino", new Date(1992, Calendar.APRIL, 2), "123456", "(48)93989383", "Unisul", "12893-SC");
         Medico medico = new Medico("Gandhi", "masculino", new Date(1992, Calendar.APRIL, 2), "123456", "(48)94844884", "Unisul", "4545-SC", Especializacao.ORTOPEDIA, true);
 
-        List<Pessoa> cadastros = PessoaRepository.getTodasPessoas();
-
-        for (Pessoa pessoa : cadastros) {
-            System.out.println(pessoa.getClass());
+        for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
+            System.out.println(pessoa);
         }
+
+        RealizarAtendimento.realizarAtendimento();
+
+        PacientesRepository.atualizarStatus(StatusAtendimento.ATENDIDO, 1);
 
         for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
             System.out.println(pessoa);

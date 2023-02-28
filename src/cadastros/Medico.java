@@ -23,6 +23,10 @@ public class Medico extends Pessoa {
         MedicosRepository.adicionarMedico(this);
     }
 
+    public void realizarAtendimento() {
+        atendimentosRealizados++;
+    }
+
     @Override
     public String toString() {
         return "Medico{" +

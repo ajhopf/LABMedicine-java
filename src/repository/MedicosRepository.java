@@ -18,4 +18,5 @@ public class MedicosRepository {
     static public int getNumeroDeMedicos() {
         return medicosCadastrados.size();
     }
+
 }

@@ -36,6 +36,11 @@ public class Paciente extends Pessoa {
         PacientesRepository.adicionarPaciente(this);
     }
 
+    public void realizarAtendimento() {
+        atendimentosRealizados++;
+    }
+
+
     public String getContatoEmergencia() {
         return contatoEmergencia;
     }
