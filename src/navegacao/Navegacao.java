@@ -1,5 +1,7 @@
 package navegacao;
 
+import service.CadastroHelpers;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,16 +15,23 @@ public class Navegacao {
                 throw new IllegalArgumentException("Número deve ser maior que 0!");
             }
 
-            System.out.println("Você escolheu a opção " + opcaoSelecionada);
+            switch (opcaoSelecionada) {
+                case 2:
+                    CadastroEnfermeiro.cadastrarEnfermeiro();
+                    break;
+                default: System.out.println("Você escolheu a opção " + opcaoSelecionada);
+            }
+
+            iniciar();
         } catch (IllegalArgumentException e) {
-            printError("Você deve selecionar um número entre 1 e 6.");
+            CadastroHelpers.printError("Você deve selecionar um número entre 1 e 6.");
             iniciar();
         } catch (InputMismatchException e){
-            printError("A opção deve ser selecionada através de um número.");
+            CadastroHelpers.printError("A opção deve ser selecionada através de um número.");
             iniciar();
         }
         catch (Exception e) {
-            printError(e.toString());
+            CadastroHelpers.printError(e.toString());
             iniciar();
         }
     }
@@ -30,14 +39,6 @@ public class Navegacao {
     private static int capturarInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
-    }
-
-    private static void printError(String message) {
-        System.out.println("-------------------------------------------------");
-        System.out.println("Opção inválida, tente novamente.");
-        System.out.println("Erro:");
-        System.out.println(message);
-        System.out.println("-------------------------------------------------");
     }
 
 }

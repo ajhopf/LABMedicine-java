@@ -2,6 +2,8 @@ import navegacao.Navegacao;
 
 public class Main {
     public static void main(String[] args) {
+
+
         Navegacao.iniciar();
 
 
