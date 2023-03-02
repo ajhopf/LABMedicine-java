@@ -34,6 +34,9 @@ public class Navegacao {
                 case 5:
                     AtualizarStatusDePaciente.atualizarStatus();
                     break;
+                case 6:
+                    TelaRelatorios.gerarRelatorios();
+                    break;
                 default: System.out.println("Você escolheu a opção " + opcaoSelecionada);
             }
 
