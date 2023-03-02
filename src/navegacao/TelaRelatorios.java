@@ -27,7 +27,7 @@ public class TelaRelatorios {
                 ListagemPessoas.gerarMenuDePessoas();
                 break;
             case 2:
-                System.out.println("Relatório dos pacientes");
+                RelatorioPacientes.gerarMenu();
                 break;
             case 3:
                 System.out.println("Relatório dos Médicos");
@@ -38,7 +38,7 @@ public class TelaRelatorios {
 
     }
 
-    public static void gerarMenuRelatorios(){
+    private static void gerarMenuRelatorios(){
         System.out.println("--------------------------------------");
         System.out.println("Selecione a opção desejada para gerar os relatórios:");
         System.out.println();

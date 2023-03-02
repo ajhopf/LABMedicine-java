@@ -40,7 +40,7 @@ public class ListagemPessoas {
         }
     }
 
-    public static void gerarRelatorioDePessoas(int opcao){
+    private static void gerarRelatorioDePessoas(int opcao){
         switch (opcao) {
             case 1:
                 List<Paciente> listaPacientes = PacientesRepository.getPacientesCadastrados();
