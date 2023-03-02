@@ -3,6 +3,7 @@ package cadastros;
 import cadastros.enums.Especializacao;
 import repository.MedicosRepository;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Medico extends Pessoa {
@@ -21,6 +22,11 @@ public class Medico extends Pessoa {
         this.atendimentosRealizados = 0;
 
         MedicosRepository.adicionarMedico(this);
+
+        System.out.println("-------------------------------------------------");
+        System.out.println("Enfermeiro cadastrado: ");
+        System.out.println(this);
+        System.out.println("-------------------------------------------------");
     }
 
     public void realizarAtendimento() {
@@ -29,10 +35,12 @@ public class Medico extends Pessoa {
 
     @Override
     public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
         return "Medico{" +
                 "nome='" + nome + '\'' +
                 ", genero='" + genero + '\'' +
-                ", dob=" + dob +
+                ", dob=" + formatter.format(dob) +
                 ", cpf='" + cpf + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", formacao='" + formacao + '\'' +
