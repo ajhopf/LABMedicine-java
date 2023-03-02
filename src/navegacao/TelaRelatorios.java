@@ -14,17 +14,23 @@ public class TelaRelatorios {
             Scanner scanner = new Scanner(System.in);
             opcao = scanner.nextInt();
 
-            if (opcao < 1 || opcao > 4) {
+            if (opcao < 1 || opcao > 3) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException | InputMismatchException e) {
-            CadastroHelpers.printError("Selecione a opção através de um número entre '1' e '4'.");
+            CadastroHelpers.printError("Selecione a opção através de um número entre '1' e '3'.");
             gerarRelatorios();
         }
 
         switch (opcao) {
             case 1:
                 ListagemPessoas.gerarMenuDePessoas();
+                break;
+            case 2:
+                System.out.println("Relatório dos pacientes");
+                break;
+            case 3:
+                System.out.println("Relatório dos Médicos");
                 break;
             default:
                 System.out.println("hello!");
@@ -39,7 +45,6 @@ public class TelaRelatorios {
         System.out.println("1. Listagem de Pessoas");
         System.out.println("2. Relatório dos Pacientes");
         System.out.println("3. Relatório dos Médicos");
-        System.out.println("4. Relatório dos Médicos");
         System.out.println("Selecione o número da opção desejada: ");
     }
 }
