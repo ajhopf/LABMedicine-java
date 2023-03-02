@@ -10,17 +10,42 @@ import java.util.Scanner;
 
 public class RealizarAtendimento {
     static public void realizarAtendimento() {
+        if (MedicosRepository.getMedicosCadastrados().size() == 0 || PacientesRepository.getPacientesCadastrados().size() ==0 ){
+            System.out.println("----------------------------");
+            System.out.println("Para realizar um atendimento é necessário que ao menos um médico e um paciente estejam cadastrados.");
+            System.out.println("----------------------------");
+            return;
+        }
+
         System.out.println("Realizar Atendimento");
 
-        int medicoId = getMedicoId();
-        int pacienteId = getPacienteId();
+        boolean encontrouMedico = false;
+        boolean encontrouPaciente = false;
 
-        Medico medico = MedicosRepository.getMedicosCadastrados().get(medicoId - 1);
-        medico.realizarAtendimento();
+        while (!encontrouMedico) {
+            try {
+                int medicoId = getMedicoId();
+                Medico medico = MedicosRepository.getMedicosCadastrados().get(medicoId - 1);
+                System.out.println("Nome do médico: " + medico.getNome());
+                medico.realizarAtendimento();
+                encontrouMedico = true;
+            } catch (IndexOutOfBoundsException e) {
+                CadastroHelpers.printError("Médico não encontrado!");
+            }
+        }
 
-        Paciente paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
-        paciente.realizarAtendimento();
-        paciente.setStatusAtendimento(StatusAtendimento.EM_ATENDIMENTO);
+        while (!encontrouPaciente) {
+            try {
+                int pacienteId = getPacienteId();
+                Paciente paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
+                System.out.println("Nome do paciente: " + paciente.getNome());
+                paciente.realizarAtendimento();
+                paciente.setStatusAtendimento(StatusAtendimento.EM_ATENDIMENTO);
+                encontrouPaciente = true;
+            } catch (IndexOutOfBoundsException e) {
+                CadastroHelpers.printError("Paciente não encontrado!");
+            }
+        }
     }
 
     static private int getMedicoId(){
