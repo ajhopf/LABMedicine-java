@@ -28,10 +28,6 @@ public class Enfermeiro extends Pessoa {
         System.out.println("-------------------------------------------------");
     }
 
-    public String getNome(){
-        return super.nome;
-    }
-
     public String getFormacao() {
         return formacao;
     }

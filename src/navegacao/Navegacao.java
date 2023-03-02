@@ -1,6 +1,6 @@
 package navegacao;
 
-import service.CadastroHelpers;
+import service.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,6 +27,10 @@ public class Navegacao {
                     break;
                 case 3:
                     CadastroMedico.cadastrarMedico();
+                    break;
+                case 4:
+                    RealizarAtendimento.realizarAtendimento();
+                    break;
                 default: System.out.println("Você escolheu a opção " + opcaoSelecionada);
             }
 
