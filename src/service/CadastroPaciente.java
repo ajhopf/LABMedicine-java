@@ -1,8 +1,7 @@
-package navegacao;
+package service;
 
 import cadastros.Paciente;
 import cadastros.enums.StatusAtendimento;
-import service.CadastroHelpers;
 
 import java.util.*;
 

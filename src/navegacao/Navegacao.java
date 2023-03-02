@@ -1,7 +1,6 @@
 package navegacao;
 
-import service.CadastroHelpers;
-import service.RealizarAtendimento;
+import service.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
