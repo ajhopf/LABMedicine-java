@@ -25,6 +25,8 @@ public class Navegacao {
                 case 2:
                     CadastroEnfermeiro.cadastrarEnfermeiro();
                     break;
+                case 3:
+                    CadastroMedico.cadastrarMedico();
                 default: System.out.println("Você escolheu a opção " + opcaoSelecionada);
             }
 
