@@ -12,7 +12,7 @@ public class Navegacao {
             int opcaoSelecionada = capturarInput();
 
             if (opcaoSelecionada < 0 || opcaoSelecionada > 6 ) {
-                throw new IllegalArgumentException("Número deve ser maior que 0!");
+                throw new IllegalArgumentException();
             }
 
             switch (opcaoSelecionada) {
@@ -30,6 +30,12 @@ public class Navegacao {
                     break;
                 case 4:
                     RealizarAtendimento.realizarAtendimento();
+                    break;
+                case 5:
+                    AtualizarStatusDePaciente.atualizarStatus();
+                    break;
+                case 6:
+                    TelaRelatorios.gerarRelatorios();
                     break;
                 default: System.out.println("Você escolheu a opção " + opcaoSelecionada);
             }

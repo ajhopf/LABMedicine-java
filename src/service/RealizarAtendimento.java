@@ -6,6 +6,7 @@ import cadastros.enums.StatusAtendimento;
 import repository.MedicosRepository;
 import repository.PacientesRepository;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RealizarAtendimento {
@@ -31,6 +32,8 @@ public class RealizarAtendimento {
                 encontrouMedico = true;
             } catch (IndexOutOfBoundsException e) {
                 CadastroHelpers.printError("Médico não encontrado!");
+            } catch (InputMismatchException e) {
+                CadastroHelpers.printError("O id deve ser um número.");
             }
         }
 
@@ -44,6 +47,8 @@ public class RealizarAtendimento {
                 encontrouPaciente = true;
             } catch (IndexOutOfBoundsException e) {
                 CadastroHelpers.printError("Paciente não encontrado!");
+            } catch (InputMismatchException e) {
+                CadastroHelpers.printError("O id deve ser um número.");
             }
         }
     }
