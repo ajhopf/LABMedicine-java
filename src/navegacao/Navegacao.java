@@ -11,11 +11,17 @@ public class Navegacao {
             TelaInicial.gerarMenuInicial();
             int opcaoSelecionada = capturarInput();
 
-            if (opcaoSelecionada < 1 || opcaoSelecionada > 6 ) {
+            if (opcaoSelecionada < 0 || opcaoSelecionada > 6 ) {
                 throw new IllegalArgumentException("Número deve ser maior que 0!");
             }
 
             switch (opcaoSelecionada) {
+                case 0:
+                    System.out.println("Até logo!");
+                    return;
+                case 1:
+                    CadastroPaciente.cadastrarPaciente();
+                    break;
                 case 2:
                     CadastroEnfermeiro.cadastrarEnfermeiro();
                     break;

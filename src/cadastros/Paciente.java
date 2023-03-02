@@ -3,6 +3,7 @@ package cadastros;
 import cadastros.enums.StatusAtendimento;
 import repository.PacientesRepository;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Paciente extends Pessoa {
     private List<String> alergias;
     private List<String> cuidadosEspecificos;
     private String convenio;
-    private int numeroConvenio;
+    private String numeroConvenio;
     private Date validadeConvenio;
     private StatusAtendimento statusAtendimento;
     private int atendimentosRealizados = 0;
@@ -21,7 +22,7 @@ public class Paciente extends Pessoa {
             String contatoEmergencia,
             List<String> alergias,
             List<String> cuidadosEspecificos,
-            String convenio, int numeroConvenio,
+            String convenio, String numeroConvenio,
             Date validadeConvenio,
             StatusAtendimento statusAtendimento) {
         super(nome, genero, dob, cpf, telefone, PacientesRepository.getNumeroDePacientes() + 1);
@@ -34,6 +35,9 @@ public class Paciente extends Pessoa {
         this.statusAtendimento = statusAtendimento;
 
         PacientesRepository.adicionarPaciente(this);
+
+        System.out.println("Paciente adicionado com sucesso");
+        System.out.println(this);
     }
 
     public void realizarAtendimento() {
@@ -73,11 +77,11 @@ public class Paciente extends Pessoa {
         this.convenio = convenio;
     }
 
-    public int getNumeroConvenio() {
+    public String getNumeroConvenio() {
         return numeroConvenio;
     }
 
-    public void setNumeroConvenio(int numeroConvenio) {
+    public void setNumeroConvenio(String numeroConvenio) {
         this.numeroConvenio = numeroConvenio;
     }
 
@@ -107,10 +111,12 @@ public class Paciente extends Pessoa {
 
     @Override
     public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
         return "Paciente{" +
                 "nome='" + nome + '\'' +
                 ", genero='" + genero + '\'' +
-                ", dob=" + dob +
+                ", dob=" + formatter.format(dob) +
                 ", cpf='" + cpf + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", contatoEmergencia='" + contatoEmergencia + '\'' +
@@ -118,7 +124,7 @@ public class Paciente extends Pessoa {
                 ", cuidadosEspecificos=" + cuidadosEspecificos +
                 ", convenio='" + convenio + '\'' +
                 ", numeroConvenio=" + numeroConvenio +
-                ", validadeConvenio=" + validadeConvenio +
+                ", validadeConvenio=" + formatter.format(validadeConvenio) +
                 ", statusAtendimento=" + statusAtendimento +
                 ", atendimentosRealizados=" + atendimentosRealizados +
                 ", id=" + id +

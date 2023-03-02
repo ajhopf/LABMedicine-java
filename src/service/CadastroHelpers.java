@@ -13,7 +13,7 @@ public class CadastroHelpers {
         System.out.println("-------------------------------------------------");
     }
 
-    public static List<String> getBasicInfos() {
+    public static List<String> obterInfosDePessoa() {
         List<String> infos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -36,7 +36,7 @@ public class CadastroHelpers {
         while(!dobValida) {
             System.out.println("Data de Nascimento: ");
             String dob = scanner.nextLine();
-            if(validaDob(dob)){
+            if(validaData(dob)){
                 dobValida = true;
                 infos.add(dob);
             } else {
@@ -53,7 +53,7 @@ public class CadastroHelpers {
         return infos;
     }
 
-    public static Date formataData(String data) throws ParseException {
+    public static Date transformaStringEmData(String data) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = formatter.parse(data);
 
@@ -64,7 +64,7 @@ public class CadastroHelpers {
         return (Objects.equals(genero.toLowerCase(), "masculino") || Objects.equals(genero.toLowerCase(), "feminino") || Objects.equals(genero.toLowerCase(), "outro"));
     }
 
-    private static boolean validaDob(String dob) {
+    public static boolean validaData(String dob) {
         return dob.matches("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
     }
 }

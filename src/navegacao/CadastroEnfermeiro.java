@@ -18,7 +18,7 @@ public class CadastroEnfermeiro {
             new Enfermeiro(
                     infos.get(0),
                     infos.get(1),
-                    CadastroHelpers.formataData(infos.get(2)),
+                    CadastroHelpers.transformaStringEmData(infos.get(2)),
                     infos.get(3),
                     infos.get(4),
                     infos.get(5),
@@ -29,7 +29,7 @@ public class CadastroEnfermeiro {
     }
 
     private static List<String> getInformacoes() {
-        List<String> infos = new ArrayList<>(CadastroHelpers.getBasicInfos());
+        List<String> infos = new ArrayList<>(CadastroHelpers.obterInfosDePessoa());
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Instituição de Ensino da Formação:");
