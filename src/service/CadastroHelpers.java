@@ -15,19 +15,21 @@ public class CadastroHelpers {
 
     public static List<String> obterInfosDePessoa() {
         List<String> infos = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Nome Completo: ");
-        infos.add(scanner.nextLine());
-
+        infos.add(obterNome());
         infos.add(obterGenero());
         infos.add(obterDob());
         infos.add(obterCpf());
-
-        System.out.println("Telefone: ");
-        infos.add(scanner.nextLine());
+        infos.add(obterTelefone());
 
         return infos;
+    }
+
+    private static String obterNome() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nome Completo: ");
+        return scanner.nextLine();
     }
 
     private static String obterGenero() {
@@ -87,6 +89,30 @@ public class CadastroHelpers {
 
         return cpf;
     }
+
+    private static String obterTelefone() {
+        Scanner scanner = new Scanner(System.in);
+        String telefone = null;
+
+        boolean telefoneValido = false;
+
+        while(!telefoneValido) {
+            System.out.println("Telefone: ");
+            telefone = scanner.nextLine();
+            if (validaTelefone(telefone)) {
+                telefoneValido = true;
+            } else {
+                printError("Telefone deve conter entre 8 e 9 dígitos. O DDD é opcional e deve estar entre parênteses.");
+            }
+        }
+
+        return telefone;
+    }
+
+    private static boolean validaTelefone(String telefone) {
+        return telefone.matches("^(\\(\\d{2}\\)\\s?)?(\\d{4,5}\\-?\\d{4})$");
+    }
+
 
     public static Date transformaStringEmData(String data) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");

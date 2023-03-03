@@ -10,7 +10,7 @@ public class CadastroMedico {
     public static void cadastrarMedico(){
         System.out.println("-------------------------------------------------");
         System.out.println("Cadastro de Medico");
-        System.out.println("-------------------------------------------------");
+        System.out.println();
         try {
             List<String> infos = obterInformacoes();
 
