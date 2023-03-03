@@ -1,4 +1,4 @@
-package service;
+package service.cadastros;
 
 import cadastros.Paciente;
 import cadastros.enums.StatusAtendimento;
@@ -34,11 +34,8 @@ public class CadastroPaciente {
 
     private static List<String> obterInformacoes() {
         List<String> infos = new ArrayList<>(CadastroHelpers.obterInfosDePessoa());
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Contato de emergência: ");
-        infos.add(scanner.nextLine());
-
+        infos.add(obterContatoDeEmergencia());
         if (possuiConvenio()) {
             infos.addAll(obterInfosDeConvenio());
         } else {
@@ -50,7 +47,13 @@ public class CadastroPaciente {
         return infos;
     }
 
-    public static boolean possuiConvenio() {
+    private static String obterContatoDeEmergencia() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Contato de emergência: ");
+        return scanner.nextLine();
+    }
+
+    private static boolean possuiConvenio() {
         boolean respostaValida = false;
         boolean possuiConvenio = false;
 

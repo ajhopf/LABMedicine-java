@@ -1,6 +1,9 @@
 package navegacao;
 
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
+import service.relatorios.ListagemPessoas;
+import service.relatorios.RelatorioMedicos;
+import service.relatorios.RelatorioPacientes;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

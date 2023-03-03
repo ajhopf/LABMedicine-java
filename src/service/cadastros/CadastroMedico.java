@@ -1,4 +1,4 @@
-package service;
+package service.cadastros;
 
 import cadastros.Medico;
 import cadastros.enums.Especializacao;

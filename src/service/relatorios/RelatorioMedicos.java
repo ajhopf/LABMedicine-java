@@ -1,9 +1,9 @@
-package navegacao;
+package service.relatorios;
 
 import cadastros.Medico;
 import cadastros.enums.Especializacao;
 import repository.MedicosRepository;
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

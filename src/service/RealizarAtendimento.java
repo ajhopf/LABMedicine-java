@@ -5,6 +5,7 @@ import cadastros.Paciente;
 import cadastros.enums.StatusAtendimento;
 import repository.MedicosRepository;
 import repository.PacientesRepository;
+import service.cadastros.CadastroHelpers;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

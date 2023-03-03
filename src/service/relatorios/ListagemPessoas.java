@@ -1,4 +1,4 @@
-package navegacao;
+package service.relatorios;
 
 import cadastros.Enfermeiro;
 import cadastros.Medico;
@@ -8,7 +8,7 @@ import repository.EnfermeirosRepository;
 import repository.MedicosRepository;
 import repository.PacientesRepository;
 import repository.PessoaRepository;
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
 
 import java.util.InputMismatchException;
 import java.util.List;
