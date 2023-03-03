@@ -20,29 +20,8 @@ public class CadastroHelpers {
         System.out.println("Nome Completo: ");
         infos.add(scanner.nextLine());
 
-        boolean generoValido = false;
-        while(!generoValido) {
-            System.out.println("Gênero: ");
-            String genero = scanner.nextLine();
-            if (!validaGenero(genero)) {
-                printError("O gênero deve ser 'masculino', 'feminino' ou 'outro'.");
-            } else {
-                infos.add(genero);
-                generoValido = true;
-            }
-        }
-
-        boolean dobValida = false;
-        while(!dobValida) {
-            System.out.println("Data de Nascimento: ");
-            String dob = scanner.nextLine();
-            if(validaData(dob)){
-                dobValida = true;
-                infos.add(dob);
-            } else {
-                printError("Data deve estar no formato dd/mm/aaaa");
-            }
-        }
+        infos.add(obterGenero());
+        infos.add(obterDob());
 
         System.out.println("CPF: ");
         infos.add(scanner.nextLine());
@@ -53,12 +32,50 @@ public class CadastroHelpers {
         return infos;
     }
 
+    private static String obterGenero() {
+        Scanner scanner = new Scanner(System.in);
+        String genero = null;
+        boolean generoValido = false;
+
+        while(!generoValido) {
+            System.out.println("Gênero: ");
+            genero = scanner.nextLine();
+            if (!validaGenero(genero)) {
+                printError("O gênero deve ser 'masculino', 'feminino' ou 'outro'.");
+            } else {
+                generoValido = true;
+            }
+        }
+
+        return genero;
+    }
+
+    private static String obterDob() {
+        Scanner scanner = new Scanner(System.in);
+        String dob = null;
+
+        boolean dobValida = false;
+
+        while(!dobValida) {
+            System.out.println("Data de Nascimento: ");
+            dob = scanner.nextLine();
+            if(validaData(dob)){
+                dobValida = true;
+            } else {
+                printError("Data deve estar no formato dd/mm/aaaa");
+            }
+        }
+
+        return dob;
+    }
+
     public static Date transformaStringEmData(String data) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = formatter.parse(data);
 
-        return date;
+        return formatter.parse(data);
     }
+
+
 
     private static boolean validaGenero(String genero) {
         return (Objects.equals(genero.toLowerCase(), "masculino") || Objects.equals(genero.toLowerCase(), "feminino") || Objects.equals(genero.toLowerCase(), "outro"));

@@ -23,17 +23,9 @@ public class TelaRelatorios {
         }
 
         switch (opcao) {
-            case 1:
-                ListagemPessoas.gerarMenuDePessoas();
-                break;
-            case 2:
-                RelatorioPacientes.gerarMenu();
-                break;
-            case 3:
-                System.out.println("Relatório dos Médicos");
-                break;
-            default:
-                System.out.println("hello!");
+            case 1 -> ListagemPessoas.gerarMenuDePessoas();
+            case 2 -> RelatorioPacientes.gerarMenu();
+            case 3 -> RelatorioMedicos.gerarMenu();
         }
 
     }

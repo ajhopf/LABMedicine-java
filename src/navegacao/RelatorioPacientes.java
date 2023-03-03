@@ -14,6 +14,7 @@ public class RelatorioPacientes {
     public static void gerarMenu() {
         System.out.println("--------------------------------------");
         System.out.println("Pacientes com qual status de atendimento devem ser listados?");
+        System.out.println();
         System.out.println("1. Aguardando atendimento");
         System.out.println("2. Em atendimento");
         System.out.println("3. Atendido");
@@ -38,31 +39,22 @@ public class RelatorioPacientes {
     }
 
     private static void gerarRelatorioDePacientes(int opcao) {
-        List<Paciente> listaFiltrada = null;
-
-        switch (opcao) {
-            case 1:
-                listaFiltrada = filtraListaDePacientes(StatusAtendimento.AGUARDANDO_ATENDIMENTO);
-                break;
-            case 2:
-                listaFiltrada = filtraListaDePacientes(StatusAtendimento.EM_ATENDIMENTO);
-                break;
-            case 3:
-                listaFiltrada = filtraListaDePacientes(StatusAtendimento.ATENDIDO);
-                break;
-            case 4:
-                listaFiltrada = filtraListaDePacientes(StatusAtendimento.NAO_ATENDIDO);
-                break;
-            default:
-                listaFiltrada = PacientesRepository.getPacientesCadastrados();
-        }
+        List<Paciente> listaFiltrada = switch (opcao) {
+            case 1 -> filtraListaDePacientes(StatusAtendimento.AGUARDANDO_ATENDIMENTO);
+            case 2 -> filtraListaDePacientes(StatusAtendimento.EM_ATENDIMENTO);
+            case 3 -> filtraListaDePacientes(StatusAtendimento.ATENDIDO);
+            case 4 -> filtraListaDePacientes(StatusAtendimento.NAO_ATENDIDO);
+            default -> PacientesRepository.getPacientesCadastrados();
+        };
 
         if (listaFiltrada.size() == 0) {
             System.out.println("------------------------------------");
             System.out.println("Sistema não possui pacientes cadastrados com este status de atendimento!");
+            System.out.println("------------------------------------");
+            return;
         }
 
-
+        System.out.println("Pacientes: ");
         for (Paciente paciente : listaFiltrada) {
             System.out.println("------------------------------------");
             System.out.println("Código: " + paciente.getId());
