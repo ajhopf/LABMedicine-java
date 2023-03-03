@@ -24,7 +24,8 @@ public class RelatorioMedicos {
         System.out.println("7. Psiquiatra");
         System.out.println("8. Ortopedista");
         System.out.println("9. Todos");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
 
         try {
             Scanner scanner = new Scanner(System.in);

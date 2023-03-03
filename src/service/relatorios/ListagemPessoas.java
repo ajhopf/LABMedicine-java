@@ -18,11 +18,13 @@ public class ListagemPessoas {
     public static void gerarMenuDePessoas() {
         System.out.println("--------------------------------------");
         System.out.println("Qual categoria de pessoas você deseja visualizar?");
+        System.out.println();
         System.out.println("1. Pacientes");
         System.out.println("2. Enfermeiros");
         System.out.println("3. Medicos");
         System.out.println("4. Todos");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
 
         try {
             Scanner scanner = new Scanner(System.in);

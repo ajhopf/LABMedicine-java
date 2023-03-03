@@ -18,8 +18,9 @@ public class RealizarAtendimento {
             System.out.println("----------------------------");
             return;
         }
-
+        System.out.println("----------------------------");
         System.out.println("Realizar Atendimento");
+        System.out.println();
 
         Medico medico = obterMedico();
 
@@ -45,6 +46,7 @@ public class RealizarAtendimento {
                 int medicoId = obterMedicoId();
                 medico = MedicosRepository.getMedicosCadastrados().get(medicoId - 1);
                 System.out.println("Nome do médico: " + medico.getNome());
+                System.out.println("----------------------------");
                 encontrouMedico = true;
             } catch (IndexOutOfBoundsException e) {
                 CadastroHelpers.printError("Médico não encontrado!");
@@ -70,6 +72,7 @@ public class RealizarAtendimento {
                 int pacienteId = obterPacienteId();
                 paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
                 System.out.println("Nome do paciente: " + paciente.getNome());
+                System.out.println("----------------------------");
                 paciente.setStatusAtendimento(StatusAtendimento.EM_ATENDIMENTO);
                 encontrouPaciente = true;
             } catch (IndexOutOfBoundsException e) {

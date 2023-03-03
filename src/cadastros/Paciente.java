@@ -36,8 +36,10 @@ public class Paciente extends Pessoa {
 
         PacientesRepository.adicionarPaciente(this);
 
+        System.out.println("---------------------");
         System.out.println("Paciente adicionado com sucesso");
         System.out.println(this);
+        System.out.println("---------------------");
     }
 
     public void realizarAtendimento() {

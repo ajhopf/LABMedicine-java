@@ -42,6 +42,7 @@ public class TelaRelatorios {
         System.out.println("2. Relatório dos Pacientes");
         System.out.println("3. Relatório dos Médicos");
         System.out.println("4. Voltar");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
     }
 }

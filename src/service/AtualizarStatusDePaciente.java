@@ -67,13 +67,14 @@ public class AtualizarStatusDePaciente {
         while(!opcaoValida) {
             try {
                 System.out.println("Escolha o novo status do paciente");
+                System.out.println();
                 System.out.println("1. Aguardando Atendimento");
                 System.out.println("2. Em atendimento");
                 System.out.println("3. Atendido");
                 System.out.println("4. Não atendido");
 
                 Scanner scanner = new Scanner(System.in);
-
+                System.out.println();
                 System.out.print("Novo status: ");
                 int status = scanner.nextInt();
 
