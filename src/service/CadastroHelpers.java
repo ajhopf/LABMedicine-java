@@ -22,9 +22,7 @@ public class CadastroHelpers {
 
         infos.add(obterGenero());
         infos.add(obterDob());
-
-        System.out.println("CPF: ");
-        infos.add(scanner.nextLine());
+        infos.add(obterCpf());
 
         System.out.println("Telefone: ");
         infos.add(scanner.nextLine());
@@ -69,6 +67,27 @@ public class CadastroHelpers {
         return dob;
     }
 
+    private static String obterCpf() {
+        Scanner scanner = new Scanner(System.in);
+        String cpf = null;
+
+        boolean cpfValido = false;
+
+        while (!cpfValido) {
+            System.out.println("CPF: ");
+            cpf = scanner.nextLine();
+            if (validaCPF(cpf)) {
+                cpfValido = true;
+            } else {
+                printError("CPF deve conter 11 dígitos e estar no formato '111.222.333-44' ou '11122233344'.");
+            }
+        }
+
+        cpf = formataCPF(cpf);
+
+        return cpf;
+    }
+
     public static Date transformaStringEmData(String data) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -80,6 +99,22 @@ public class CadastroHelpers {
     private static boolean validaGenero(String genero) {
         return (Objects.equals(genero.toLowerCase(), "masculino") || Objects.equals(genero.toLowerCase(), "feminino") || Objects.equals(genero.toLowerCase(), "outro"));
     }
+
+    private static boolean validaCPF(String cpf) {
+        return cpf.matches("^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$");
+    }
+
+    private static String formataCPF(String cpf) {
+        if (cpf.matches("^[0-9]{11}$")) {
+            String first = cpf.substring(0, 3);
+            String second = cpf.substring(3, 6);
+            String third = cpf.substring(6, 9);
+            String last = cpf.substring(9);
+            cpf = first + "." + second + "." + third + "-" + last;
+        }
+        return cpf;
+    }
+
 
     public static boolean validaData(String dob) {
         return dob.matches("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
