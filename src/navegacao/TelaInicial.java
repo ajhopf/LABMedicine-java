@@ -73,7 +73,6 @@ public class TelaInicial {
         System.out.println("4. Realizar Atendimento Médico");
         System.out.println("5. Atualizar o Status de Atendimento do Paciente");
         System.out.println("6. Relatórios");
-        System.out.println("-------------------");
         System.out.println("0. Sair do Sistema");
         System.out.println("-------------------");
         System.out.print("Selecione o número da opção desejada: ");

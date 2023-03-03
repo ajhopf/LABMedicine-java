@@ -94,6 +94,8 @@ public class Paciente extends Pessoa {
     }
 
     public StatusAtendimento getStatusAtendimento() {
+
+
         return statusAtendimento;
     }
 
