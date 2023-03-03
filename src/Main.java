@@ -12,10 +12,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
-
-
-
         List<String> alergias = new ArrayList<>();
         alergias.add("formiga");
         alergias.add("ibuprofeno");
@@ -51,20 +47,24 @@ public class Main {
                 StatusAtendimento.AGUARDANDO_ATENDIMENTO
         );
 
-        Enfermeiro enfermeiro = new Enfermeiro("Ziggy", "masculino", new Date(1992, Calendar.APRIL, 2), "11122233344", "(48)93989383", "Unisul", "12893-SC");
-        Medico medico = new Medico("Gandhi", "masculino", new Date(1992, Calendar.APRIL, 2), "11122233344", "(48)94844884", "Unisul", "4545-SC", Especializacao.ORTOPEDIA, true);
-//
+        Enfermeiro enfermeiro = new Enfermeiro(
+                "Ziggy",
+                "masculino",
+                new Date(1992, Calendar.APRIL, 2),
+                "11122233344",
+                "(48)93989383",
+                "Unisul",
+                "12893-SC");
+
+        Medico medico = new Medico(
+                "Gandhi",
+                "masculino",
+                new Date(1992, Calendar.APRIL, 2),
+                "11122233344", "(48)94844884",
+                "Unisul", "4545-SC",
+                Especializacao.ORTOPEDIA,
+                true);
+
         TelaInicial.iniciar();
-//        for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
-//            System.out.println(pessoa);
-//        }
-//
-//        RealizarAtendimento.realizarAtendimento();
-//
-//        AtualizarStatusDePaciente.atualizarStatus(StatusAtendimento.ATENDIDO, 1);
-//
-//        for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
-//            System.out.println(pessoa);
-//        }
     }
 }

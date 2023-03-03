@@ -21,15 +21,30 @@ public class RealizarAtendimento {
 
         System.out.println("Realizar Atendimento");
 
-        boolean encontrouMedico = false;
-        boolean encontrouPaciente = false;
+        Medico medico = obterMedico();
 
+        if (!medico.isActive()) {
+            System.out.println("Médico selecionado está inativo. Atendimento não realizado.");
+            System.out.println("----------------------------");
+            return;
+        }
+
+        Paciente paciente = obterPaciente();
+
+        medico.realizarAtendimento();
+        paciente.realizarAtendimento();
+        System.out.println("Atendimento realizado com sucesso!");
+        System.out.println("----------------------------");
+    }
+
+    static private Medico obterMedico() {
+        Medico medico = null;
+        boolean encontrouMedico = false;
         while (!encontrouMedico) {
             try {
-                int medicoId = getMedicoId();
-                Medico medico = MedicosRepository.getMedicosCadastrados().get(medicoId - 1);
+                int medicoId = obterMedicoId();
+                medico = MedicosRepository.getMedicosCadastrados().get(medicoId - 1);
                 System.out.println("Nome do médico: " + medico.getNome());
-                medico.realizarAtendimento();
                 encontrouMedico = true;
             } catch (IndexOutOfBoundsException e) {
                 CadastroHelpers.printError("Médico não encontrado!");
@@ -38,12 +53,23 @@ public class RealizarAtendimento {
             }
         }
 
+        return medico;
+    }
+
+    static private int obterMedicoId(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o id do médico: ");
+        return scanner.nextInt();
+    }
+
+    static private Paciente obterPaciente() {
+        Paciente paciente = null;
+        boolean encontrouPaciente = false;
         while (!encontrouPaciente) {
             try {
-                int pacienteId = getPacienteId();
-                Paciente paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
+                int pacienteId = obterPacienteId();
+                paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
                 System.out.println("Nome do paciente: " + paciente.getNome());
-                paciente.realizarAtendimento();
                 paciente.setStatusAtendimento(StatusAtendimento.EM_ATENDIMENTO);
                 encontrouPaciente = true;
             } catch (IndexOutOfBoundsException e) {
@@ -52,17 +78,17 @@ public class RealizarAtendimento {
                 CadastroHelpers.printError("O id deve ser um número.");
             }
         }
+
+        return paciente;
     }
 
-    static private int getMedicoId(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o id do médico: ");
-        return scanner.nextInt();
-    }
-
-    static private int getPacienteId(){
+    static private int obterPacienteId(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o id do paciente: ");
         return scanner.nextInt();
     }
+
+
+
+
 }
