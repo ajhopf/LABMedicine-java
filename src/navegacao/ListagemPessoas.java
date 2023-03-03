@@ -40,49 +40,52 @@ public class ListagemPessoas {
         }
     }
 
-    public static void gerarRelatorioDePessoas(int opcao){
+    private static void gerarRelatorioDePessoas(int opcao){
         switch (opcao) {
-            case 1:
+            case 1 -> {
                 List<Paciente> listaPacientes = PacientesRepository.getPacientesCadastrados();
-
+                System.out.println("Pacientes: ");
                 for (Paciente paciente : listaPacientes) {
-                    System.out.println("-------------------");
+                    System.out.println("------------------------------------");
                     System.out.println("Código: " + paciente.getId());
                     System.out.println("Nome: " + paciente.getNome());
                     System.out.println("CPF: " + paciente.getCpf());
                 }
-                System.out.println("-------------------");
-                break;
-            case 2:
+                System.out.println("------------------------------------");
+            }
+            case 2 -> {
                 List<Enfermeiro> listaEnfermeiros = EnfermeirosRepository.getEnfermeirosCadastrados();
+                System.out.println("Enfermeiros: ");
                 for (Enfermeiro enfermeiro : listaEnfermeiros) {
-                    System.out.println("-------------------");
+                    System.out.println("------------------------------------");
                     System.out.println("Código: " + enfermeiro.getId());
                     System.out.println("Nome: " + enfermeiro.getNome());
                     System.out.println("CPF: " + enfermeiro.getCpf());
                 }
-                System.out.println("-------------------");
-                break;
-            case 3:
+                System.out.println("------------------------------------");
+            }
+            case 3 -> {
                 List<Medico> listaMedicos = MedicosRepository.getMedicosCadastrados();
+                System.out.println("Medicos: ");
                 for (Medico medico : listaMedicos) {
-                    System.out.println("-------------------");
+                    System.out.println("------------------------------------");
                     System.out.println("Código: " + medico.getId());
                     System.out.println("Nome: " + medico.getNome());
                     System.out.println("CPF: " + medico.getCpf());
                 }
-                System.out.println("-------------------");
-                break;
-            default:
+                System.out.println("------------------------------------");
+            }
+            default -> {
                 List<Pessoa> listaPessoas = PessoaRepository.getTodasPessoas();
+                System.out.println("Pessoas: ");
                 for (Pessoa pessoa : listaPessoas) {
-                    System.out.println("-------------------");
+                    System.out.println("------------------------------------");
                     System.out.println("Código: " + pessoa.getId());
                     System.out.println("Nome: " + pessoa.getNome());
                     System.out.println("CPF: " + pessoa.getCpf());
                 }
-                System.out.println("-------------------");
-                break;
+                System.out.println("------------------------------------");
+            }
         }
     }
 }

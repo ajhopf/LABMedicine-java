@@ -24,13 +24,53 @@ public class Medico extends Pessoa {
         MedicosRepository.adicionarMedico(this);
 
         System.out.println("-------------------------------------------------");
-        System.out.println("Enfermeiro cadastrado: ");
+        System.out.println("Médico cadastrado: ");
         System.out.println(this);
         System.out.println("-------------------------------------------------");
     }
 
     public void realizarAtendimento() {
         atendimentosRealizados++;
+    }
+
+    public String getFormacao() {
+        return formacao;
+    }
+
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+
+    public String getCadastroCrm() {
+        return cadastroCrm;
+    }
+
+    public void setCadastroCrm(String cadastroCrm) {
+        this.cadastroCrm = cadastroCrm;
+    }
+
+    public Especializacao getEspecializacao() {
+        return especializacao;
+    }
+
+    public void setEspecializacao(Especializacao especializacao) {
+        this.especializacao = especializacao;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public int getAtendimentosRealizados() {
+        return atendimentosRealizados;
+    }
+
+    public void setAtendimentosRealizados(int atendimentosRealizados) {
+        this.atendimentosRealizados = atendimentosRealizados;
     }
 
     @Override
