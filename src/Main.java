@@ -55,16 +55,5 @@ public class Main {
         Medico medico = new Medico("Gandhi", "masculino", new Date(1992, Calendar.APRIL, 2), "123456", "(48)94844884", "Unisul", "4545-SC", Especializacao.ORTOPEDIA, true);
 //
         Navegacao.iniciar();
-//        for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
-//            System.out.println(pessoa);
-//        }
-//
-//        RealizarAtendimento.realizarAtendimento();
-//
-//        AtualizarStatusDePaciente.atualizarStatus(StatusAtendimento.ATENDIDO, 1);
-//
-//        for (Pessoa pessoa : PessoaRepository.getTodasPessoas()) {
-//            System.out.println(pessoa);
-//        }
     }
 }
