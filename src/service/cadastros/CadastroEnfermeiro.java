@@ -1,4 +1,4 @@
-package service;
+package service.cadastros;
 
 import cadastros.Enfermeiro;
 
@@ -10,7 +10,7 @@ public class CadastroEnfermeiro {
     public static void cadastrarEnfermeiro(){
         System.out.println("-------------------------------------------------");
         System.out.println("Cadastro de Enfermeiro");
-        System.out.println("-------------------------------------------------");
+        System.out.println();
         try {
             List<String> infos = getInformacoes();
 

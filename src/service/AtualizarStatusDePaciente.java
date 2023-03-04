@@ -3,6 +3,7 @@ package service;
 import cadastros.Paciente;
 import cadastros.enums.StatusAtendimento;
 import repository.PacientesRepository;
+import service.cadastros.CadastroHelpers;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -16,15 +17,25 @@ public class AtualizarStatusDePaciente {
             return;
         }
 
+        Paciente paciente = obterPaciente();
+        StatusAtendimento novoStatus = obterNovoStatus();
+
+        setNovoStatus(novoStatus, paciente);
+        System.out.println("----------------------------");
+        System.out.println("Status do paciente " + paciente.getNome() + " atualizado.");
+        System.out.println("Novo status: " + paciente.getStatusAtendimento());
+        System.out.println("----------------------------");
+    }
+
+    static private Paciente obterPaciente() {
         Paciente paciente = null;
-        StatusAtendimento novoStatus = null;
 
         boolean idValido = false;
         while (!idValido) {
             try {
                 System.out.println("----------------------------");
                 System.out.println("Atualizar Status de Atendimento do Paciente.");
-                System.out.println("----------------------------");
+                System.out.println();
 
                 Scanner scanner = new Scanner(System.in);
 
@@ -33,6 +44,7 @@ public class AtualizarStatusDePaciente {
                 paciente = PacientesRepository.getPacientesCadastrados().get(pacienteId - 1);
                 System.out.println("Nome do paciente: " + paciente.getNome());
                 System.out.println("Status atual do paciente: " + paciente.getStatusAtendimento());
+                System.out.println("----------------------------");
                 idValido = true;
             } catch (IndexOutOfBoundsException e) {
                 CadastroHelpers.printError("Paciente não encontrado!");
@@ -41,17 +53,28 @@ public class AtualizarStatusDePaciente {
             }
         }
 
+        return paciente;
+    }
+
+    static private void setNovoStatus (StatusAtendimento novoStatus, Paciente paciente) {
+        paciente.setStatusAtendimento(novoStatus);
+    }
+
+    static private StatusAtendimento obterNovoStatus(){
+        StatusAtendimento novoStatus = null;
+
         boolean opcaoValida = false;
         while(!opcaoValida) {
             try {
                 System.out.println("Escolha o novo status do paciente");
+                System.out.println();
                 System.out.println("1. Aguardando Atendimento");
                 System.out.println("2. Em atendimento");
                 System.out.println("3. Atendido");
                 System.out.println("4. Não atendido");
 
                 Scanner scanner = new Scanner(System.in);
-
+                System.out.println();
                 System.out.print("Novo status: ");
                 int status = scanner.nextInt();
 
@@ -80,13 +103,6 @@ public class AtualizarStatusDePaciente {
             }
         }
 
-        StatusAtendimento retorno = setNovoStatus(novoStatus, paciente);
-        System.out.println(retorno);
-    }
-
-    static private StatusAtendimento setNovoStatus (StatusAtendimento novoStatus, Paciente paciente) {
-        paciente.setStatusAtendimento(novoStatus);
-
-        return paciente.getStatusAtendimento();
+        return novoStatus;
     }
 }

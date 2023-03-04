@@ -1,14 +1,13 @@
-package navegacao;
+package service.relatorios;
 
 import cadastros.Enfermeiro;
 import cadastros.Medico;
 import cadastros.Paciente;
-import cadastros.Pessoa;
 import repository.EnfermeirosRepository;
 import repository.MedicosRepository;
 import repository.PacientesRepository;
 import repository.PessoaRepository;
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -18,11 +17,13 @@ public class ListagemPessoas {
     public static void gerarMenuDePessoas() {
         System.out.println("--------------------------------------");
         System.out.println("Qual categoria de pessoas você deseja visualizar?");
+        System.out.println();
         System.out.println("1. Pacientes");
         System.out.println("2. Enfermeiros");
         System.out.println("3. Medicos");
         System.out.println("4. Todos");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
 
         try {
             Scanner scanner = new Scanner(System.in);
@@ -75,17 +76,7 @@ public class ListagemPessoas {
                 }
                 System.out.println("------------------------------------");
             }
-            default -> {
-                List<Pessoa> listaPessoas = PessoaRepository.getTodasPessoas();
-                System.out.println("Pessoas: ");
-                for (Pessoa pessoa : listaPessoas) {
-                    System.out.println("------------------------------------");
-                    System.out.println("Código: " + pessoa.getId());
-                    System.out.println("Nome: " + pessoa.getNome());
-                    System.out.println("CPF: " + pessoa.getCpf());
-                }
-                System.out.println("------------------------------------");
-            }
+            default -> PessoaRepository.mostrarListaDePessoasFormatada();
         }
     }
 }

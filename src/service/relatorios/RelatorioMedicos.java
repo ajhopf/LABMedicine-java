@@ -1,9 +1,9 @@
-package navegacao;
+package service.relatorios;
 
 import cadastros.Medico;
 import cadastros.enums.Especializacao;
 import repository.MedicosRepository;
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -24,7 +24,8 @@ public class RelatorioMedicos {
         System.out.println("7. Psiquiatra");
         System.out.println("8. Ortopedista");
         System.out.println("9. Todos");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
 
         try {
             Scanner scanner = new Scanner(System.in);
@@ -70,7 +71,10 @@ public class RelatorioMedicos {
             System.out.println("Instituição: " + medico.getFormacao());
             System.out.println("CRM: " + medico.getCadastroCrm());
             System.out.println("Especialização: " + medico.getEspecializacao());
+            System.out.println("Atendimentos realizados: " + medico.getAtendimentosRealizados());
+            System.out.println("Estado no sistema: " + (medico.isActive() ? "ativo" : "inativo"));
         }
+        System.out.println("------------------------------------");
     }
 
     private static List<Medico> filtraListaDeMedicos(Especializacao especializacao) {

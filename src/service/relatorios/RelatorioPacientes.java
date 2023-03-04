@@ -1,9 +1,9 @@
-package navegacao;
+package service.relatorios;
 
 import cadastros.Paciente;
 import cadastros.enums.StatusAtendimento;
 import repository.PacientesRepository;
-import service.CadastroHelpers;
+import service.cadastros.CadastroHelpers;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -20,7 +20,8 @@ public class RelatorioPacientes {
         System.out.println("3. Atendido");
         System.out.println("4. Não atendido");
         System.out.println("5. Todos");
-        System.out.println("Selecione o número da opção desejada: ");
+        System.out.println();
+        System.out.print("Selecione o número da opção desejada: ");
 
         try {
             Scanner scanner = new Scanner(System.in);
