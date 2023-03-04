@@ -47,24 +47,6 @@ public class Main {
                 StatusAtendimento.AGUARDANDO_ATENDIMENTO
         );
 
-        Enfermeiro enfermeiro = new Enfermeiro(
-                "Frederico Silva",
-                "masculino",
-                new Date(1992, Calendar.APRIL, 2),
-                "11122233344",
-                "(48)93989383",
-                "Unisul",
-                "12893-SC");
 
-        Medico medico = new Medico(
-                "Lucas Hopf",
-                "masculino",
-                new Date(1992, Calendar.APRIL, 2),
-                "11122233344", "(48)94844884",
-                "Unisul", "4545-SC",
-                Especializacao.ORTOPEDIA,
-                false);
-
-        TelaInicial.iniciar();
     }
 }
