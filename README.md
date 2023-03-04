@@ -257,6 +257,12 @@ Dito isto, algumas das melhorias que estão em vista para um futuro próximo:
 
 * Edição dos cadastros;
 * Implementar um novo repositório contendo informações das consultas dos pacientes;
+* Realizar filtragens avançadas no banco de dados;
+* Persistir os dados cadastrados após a finalização da aplicação;
 * Possibilitar o agendamento de consultas para os médicos;
 * Implementar um front-end para que o sistema se torne mais amigável ao usuário;
 * Tradução do sistema para o inglês, visando a venda do sistema para o exterior;
+
+## Link para vídeo explicativo
+
+https://drive.google.com/file/d/11HbQmW5kyW9nr6iNFtim0-mOHDPvWyZy/view?usp=sharing
