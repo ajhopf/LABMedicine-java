@@ -71,7 +71,10 @@ public class RelatorioMedicos {
             System.out.println("Instituição: " + medico.getFormacao());
             System.out.println("CRM: " + medico.getCadastroCrm());
             System.out.println("Especialização: " + medico.getEspecializacao());
+            System.out.println("Atendimentos realizados: " + medico.getAtendimentosRealizados());
+            System.out.println("Estado no sistema: " + (medico.isActive() ? "ativo" : "inativo"));
         }
+        System.out.println("------------------------------------");
     }
 
     private static List<Medico> filtraListaDeMedicos(Especializacao especializacao) {

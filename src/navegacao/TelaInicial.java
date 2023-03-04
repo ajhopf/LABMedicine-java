@@ -64,7 +64,7 @@ public class TelaInicial {
     }
 
     public static void gerarMenuInicial(){
-        System.out.println("Bem vindo ao sistema LABMedicine!");
+        System.out.println("Bem vindo ao sistema iMedical!");
         System.out.println();
         System.out.println("Selecione uma das opções abaixo:");
         System.out.println("1. Cadastro de Paciente");
