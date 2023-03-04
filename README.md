@@ -15,6 +15,7 @@
   - [Estrutura e organização do projeto](#estrutura-de-organização-do-projeto-)
   - [Desenvolvimento do Projeto](#desenvolvimento-do-projeto-)
 - [Melhorias Futuras](#melhorias-e-implementações-futuras)
+- [Vídeo Explicativo](#link-para-vídeo-explicativo)
 
 ## Introdução
 
