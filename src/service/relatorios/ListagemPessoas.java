@@ -3,7 +3,6 @@ package service.relatorios;
 import cadastros.Enfermeiro;
 import cadastros.Medico;
 import cadastros.Paciente;
-import cadastros.Pessoa;
 import repository.EnfermeirosRepository;
 import repository.MedicosRepository;
 import repository.PacientesRepository;
@@ -77,17 +76,7 @@ public class ListagemPessoas {
                 }
                 System.out.println("------------------------------------");
             }
-            default -> {
-                List<Pessoa> listaPessoas = PessoaRepository.getTodasPessoas();
-                System.out.println("Pessoas: ");
-                for (Pessoa pessoa : listaPessoas) {
-                    System.out.println("------------------------------------");
-                    System.out.println("Código: " + pessoa.getId());
-                    System.out.println("Nome: " + pessoa.getNome());
-                    System.out.println("CPF: " + pessoa.getCpf());
-                }
-                System.out.println("------------------------------------");
-            }
+            default -> PessoaRepository.mostrarListaDePessoasFormatada();
         }
     }
 }

@@ -48,7 +48,7 @@ public class Main {
         );
 
         Enfermeiro enfermeiro = new Enfermeiro(
-                "Ziggy",
+                "Frederico Silva",
                 "masculino",
                 new Date(1992, Calendar.APRIL, 2),
                 "11122233344",
@@ -57,13 +57,13 @@ public class Main {
                 "12893-SC");
 
         Medico medico = new Medico(
-                "Gandhi",
+                "Lucas Hopf",
                 "masculino",
                 new Date(1992, Calendar.APRIL, 2),
                 "11122233344", "(48)94844884",
                 "Unisul", "4545-SC",
                 Especializacao.ORTOPEDIA,
-                true);
+                false);
 
         TelaInicial.iniciar();
     }

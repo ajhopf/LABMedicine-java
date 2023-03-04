@@ -58,7 +58,7 @@ public class CadastroMedico {
         try {
             Scanner scanner = new Scanner(System.in);
             int numero = scanner.nextInt();
-            if (numero > 0 && numero < 5) {
+            if (numero > 0 && numero < 9) {
                 switch (numero) {
                     case 1 -> {
                         especializacao = Especializacao.CLINICO_GERAL;
