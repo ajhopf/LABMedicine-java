@@ -1,5 +1,20 @@
 # iMedicine - Gerenciamento de cadastros de Pacientes, Médicos e Enfermeiros para sua clínica!
 
+## Conteúdos:
+
+- [Introdução](#introdução)
+- [Utilizando o Sistema](#utilizando-o-sistema)
+  - [Cadastro de Pacientes](#cadastro-de-paciente)
+  - [Cadastro de Enfermeiro](#cadastro-de-enfermeiro)
+  - [Cadastro de Médico](#cadastro-de-médico)
+  - [Realizar Atendimento Médico](#realizar-atendimento-médico)
+  - [Atualizar o Status de Atendimento do Paciente](#atualizar-o-status-de-atendimento-do-paciente)
+  - [Relatórios](#relatórios)
+- [Técnicas e tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
+  - [Estrutura e organização do projeto](#estrutura-de-organização-do-projeto-)
+  - [Desenvolvimento do Projeto](#desenvolvimento-do-projeto-)
+  - [Melhorias Futuras](#melhorias-e-implementações-futuras)
+
 ## Introdução
 
 Bem vindo ao sistema iMedicine!
@@ -15,7 +30,9 @@ Esta é a versão 1.0 do sistema. Futuramente você poderá também:
 * Realizar filtragens avançadas no banco de dados;
 * Persistir os dados cadastrados após a finalização da aplicação;
 
-## Utilizando o sistema:
+<hr>
+
+## Utilizando o sistema
 
 Ao inicializar o sistema é gerado o menu inicial com 7 opções:
 
@@ -27,7 +44,7 @@ O usuário deve escolher a opção através de um número.
 
 Caso o usuário digite um número não disponível ou letras, o sistema mostrará uma mensagem de erro, renderizando novamente o menu. Este fluxo de verificação está presente em todo o sistema, desta forma evitando que um erro de digitação "quebre" o sistema.
 
-### Cadastro de Paciente:
+### Cadastro de Paciente
 
 Ao escolher a opção '1' o usuário irá ser direcionado para a criação de um novo paciente.
 
@@ -116,6 +133,8 @@ Neste menu é possível escolher entre relatórios gerais através da listagem d
 
 Os relatórios de pacientes poderão ser filtrados de acordo com seu status no sistema. Os relatórios médicos podem ser exibidos de acordo com sua especialização.
 
+<hr>
+
 ## Técnicas e tecnologias utilizadas
 
 Para o desenvolvimento do software foi utilizada a linguagem Java.
@@ -169,7 +188,7 @@ Além disso, a classe CadastroHelpers contém funções que são partilhadas por
     <img src="src/assets/navegacao.png" alt="organização do package navegação">
 </p>
 
-Por fim, no package Navegação estão as classes responsáveis por os relatórios e as telas que o usuário utilizará para navegar dentro do sistema.
+Por fim, no package Navegação estão as classes responsáveis pelas telas que o usuário utilizará para navegar dentro do sistema.
 
 
 #### Organização geral das pastas
@@ -196,3 +215,17 @@ Para versionamento do código foi utilizado o github, sendo aberta uma nova bran
 * navegacao -> implementação das opções de navegação, telas e menus;
 * relatorios -> execução dos relatórios;
 * code-review -> uma vez pronto, o sistema passou por uma nova rodada de revisão, otimizando a organização do código e a experiência do usuário. 
+
+## Melhorias e implementações futuras
+
+Este projeto ainda está em desenvolvimento.
+
+Na fase atual contamos apenas com o produto viável mínimo (MVP), visando a entrega de valor para o cliente, levando em consideração a necessidade de uma entrega contínua, além de possibilitar que o cliente visualize o sistema e proponha alterações de acordo com suas necessidades.
+
+Dito isto, algumas das melhorias que estão em vista para um futuro próximo:
+
+* Edição dos cadastros;
+* Implementar um novo repositório contendo informações das consultas dos pacientes;
+* Possibilitar o agendamento de consultas para os médicos;
+* Implementar um front-end para que o sistema se torne mais amigável ao usuário;
+* Tradução do sistema para o inglês, visando a venda do sistema para o exterior;
