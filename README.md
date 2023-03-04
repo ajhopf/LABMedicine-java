@@ -3,6 +3,7 @@
 ## Conteúdos:
 
 - [Introdução](#introdução)
+- [Executando o Sistema](#executando-o-sistema)
 - [Utilizando o Sistema](#utilizando-o-sistema)
   - [Cadastro de Pacientes](#cadastro-de-paciente)
   - [Cadastro de Enfermeiro](#cadastro-de-enfermeiro)
@@ -13,7 +14,7 @@
 - [Técnicas e tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
   - [Estrutura e organização do projeto](#estrutura-de-organização-do-projeto-)
   - [Desenvolvimento do Projeto](#desenvolvimento-do-projeto-)
-  - [Melhorias Futuras](#melhorias-e-implementações-futuras)
+- [Melhorias Futuras](#melhorias-e-implementações-futuras)
 
 ## Introdução
 
@@ -29,6 +30,36 @@ Esta é a versão 1.0 do sistema. Futuramente você poderá também:
 * Editar os cadastros;
 * Realizar filtragens avançadas no banco de dados;
 * Persistir os dados cadastrados após a finalização da aplicação;
+
+<hr>
+
+## Executando o sistema
+
+Para executar este sistema você deve ter o Java instalado na sua máquina, ou abri-lo utilizando uma IDE com o JVM integrado.
+
+Para maiores informações visite [o site oficial Java](https://www.java.com/en/).
+
+Com um terminal aberto no local que você deseja salvar este projeto, clone este repositório utilizando o comando
+
+````
+git clone git@github.com:ajhopf/LABMedicine-java.git
+````
+
+Assim como a maior parte dos sistemas Java, a "porta de entrada" do sistema é através do método main da classe Main.
+
+Visando facilitar a execução de testes instanciamos dois pacientes, um médico e um enfermeiro.
+
+Se você deseja iniciar o sistema sem nenhuma pessoa cadastrada simplesmente delete esta parte do código.
+
+O único código realmente necessário da classe Main é:
+
+````
+public static void main(String[] args) {
+    TelaInicial.iniciar();
+}
+````
+
+Para iniciar o sistema, execute o método main.
 
 <hr>
 
