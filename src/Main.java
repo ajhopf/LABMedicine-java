@@ -47,6 +47,28 @@ public class Main {
                 StatusAtendimento.AGUARDANDO_ATENDIMENTO
         );
 
+        Medico medico = new Medico(
+                "Lucas Hopf",
+                "masculino",
+                new Date(1995, Calendar.MARCH, 29),
+                "123.123.123-00",
+                "98989898",
+                "UFRGS",
+                "1234/RS",
+                Especializacao.ORTOPEDIA,
+                true
+        );
 
+        Enfermeiro enfermeiro = new Enfermeiro(
+                "Fatima Lunardi",
+                "feminino",
+                new Date(1960, Calendar.AUGUST, 12),
+                "111.222.333-44",
+                "(48)98989898",
+                "UFSC",
+                "1234/SC"
+        );
+
+        TelaInicial.iniciar();
     }
 }
