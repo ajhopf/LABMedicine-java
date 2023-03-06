@@ -57,7 +57,7 @@ public class CadastroMedico {
 
         if (crm.length() == 0) {
             CadastroHelpers.printError("Digite o cadastro CRM.");
-            obterInstituicaoDeEnsino();
+            obterCrm();
         }
 
         return crm;

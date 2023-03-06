@@ -50,7 +50,13 @@ public class CadastroPaciente {
     private static String obterContatoDeEmergencia() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Contato de emergência: ");
-        return scanner.nextLine();
+        String contato = scanner.nextLine();
+        if (contato.length() == 0) {
+            CadastroHelpers.printError("Digite um contato de emergência.");
+            obterContatoDeEmergencia();
+        }
+
+        return contato;
     }
 
     private static boolean possuiConvenio() {
