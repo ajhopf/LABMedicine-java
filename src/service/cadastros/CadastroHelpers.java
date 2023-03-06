@@ -29,7 +29,14 @@ public class CadastroHelpers {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Nome Completo: ");
-        return scanner.nextLine();
+        String nome = scanner.nextLine();
+
+        if (nome.length() == 0) {
+            CadastroHelpers.printError("Digite o nome do paciente");
+            obterNome();
+        }
+
+        return nome;
     }
 
     private static String obterGenero() {
