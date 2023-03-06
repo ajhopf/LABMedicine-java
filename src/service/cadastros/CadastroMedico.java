@@ -32,14 +32,39 @@ public class CadastroMedico {
 
     private static List<String> obterInformacoes() {
         List<String> infos = new ArrayList<>(CadastroHelpers.obterInfosDePessoa());
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Instituição de Ensino da Formação:");
-        infos.add(scanner.nextLine());
-        System.out.println("CRM/UF");
-        infos.add(scanner.nextLine());
-
+        infos.add(obterInstituicaoDeEnsino());
+        infos.add(obterCrm());
         return infos;
+    }
+
+    private static String obterInstituicaoDeEnsino() {
+        String instituicao;
+
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Instituição de Ensino da Formação:");
+            instituicao = scanner.nextLine();
+            if (instituicao.length() == 0) {
+                CadastroHelpers.printError("Digite a instituição de ensino de formação.");
+            }
+        } while (instituicao.length() == 0);
+
+        return instituicao;
+    }
+
+    private static String obterCrm() {
+        String crm;
+
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("CRM/UF:");
+            crm = scanner.nextLine();
+            if (crm.length() == 0) {
+                CadastroHelpers.printError("Digite o cadastro CRM.");
+            }
+        } while (crm.length() == 0);
+
+        return crm;
     }
 
     private static Especializacao obterEspecializacao() {

@@ -29,13 +29,38 @@ public class CadastroEnfermeiro {
 
     private static List<String> getInformacoes() {
         List<String> infos = new ArrayList<>(CadastroHelpers.obterInfosDePessoa());
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Instituição de Ensino da Formação:");
-        infos.add(scanner.nextLine());
-        System.out.println("COFEN/UF");
-        infos.add(scanner.nextLine());
-
+        infos.add(obterInstituicaoDeEnsino());
+        infos.add(obterCofen());
         return infos;
+    }
+
+    private static String obterInstituicaoDeEnsino() {
+        String instituicao;
+
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Instituição de Ensino da Formação:");
+            instituicao = scanner.nextLine();
+            if (instituicao.length() == 0) {
+                CadastroHelpers.printError("Digite a instituição de ensino de formação.");
+            }
+        } while (instituicao.length() == 0);
+
+        return instituicao;
+    }
+
+    private static String obterCofen() {
+        String cofen;
+
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("COFEN/UF:");
+            cofen = scanner.nextLine();
+            if (cofen.length() == 0) {
+                CadastroHelpers.printError("Digite o cadastro COFEN.");
+            }
+        } while (cofen.length() == 0);
+
+        return cofen;
     }
 }

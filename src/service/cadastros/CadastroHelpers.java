@@ -26,10 +26,18 @@ public class CadastroHelpers {
     }
 
     private static String obterNome() {
-        Scanner scanner = new Scanner(System.in);
+        String nome;
 
-        System.out.println("Nome Completo: ");
-        return scanner.nextLine();
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Nome completo:");
+            nome = scanner.nextLine();
+            if (nome.length() == 0) {
+                CadastroHelpers.printError("Digite o nome completo.");
+            }
+        } while (nome.length() == 0);
+
+        return nome;
     }
 
     private static String obterGenero() {
