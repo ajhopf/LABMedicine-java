@@ -38,27 +38,31 @@ public class CadastroMedico {
     }
 
     private static String obterInstituicaoDeEnsino() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Instituição de Ensino da Formação:");
-        String instituicao = scanner.nextLine();
+        String instituicao;
 
-        if (instituicao.length() == 0) {
-            CadastroHelpers.printError("Digite a instituição de ensino da formação.");
-            obterInstituicaoDeEnsino();
-        }
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Instituição de Ensino da Formação:");
+            instituicao = scanner.nextLine();
+            if (instituicao.length() == 0) {
+                CadastroHelpers.printError("Digite a instituição de ensino de formação.");
+            }
+        } while (instituicao.length() == 0);
 
         return instituicao;
     }
 
     private static String obterCrm() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("CRM/UF");
-        String crm = scanner.nextLine();
+        String crm;
 
-        if (crm.length() == 0) {
-            CadastroHelpers.printError("Digite o cadastro CRM.");
-            obterCrm();
-        }
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("CRM/UF:");
+            crm = scanner.nextLine();
+            if (crm.length() == 0) {
+                CadastroHelpers.printError("Digite o cadastro CRM.");
+            }
+        } while (crm.length() == 0);
 
         return crm;
     }
